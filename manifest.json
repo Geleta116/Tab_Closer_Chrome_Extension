@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Closer",
+  "version": "1.0",
+  "description": "Displays the names of all open tabs and manages inactive tabs.",
+  "permissions": ["tabs", "storage", "alarms"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "closer.png"
+  }
+ 
+}
