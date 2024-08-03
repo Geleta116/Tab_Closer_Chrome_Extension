@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const tabList = document.getElementById('tab-list');
-    const TWO_MINUTES = 2 * 60 * 1000; 
+    const FIFTEEN_MINUTES = 15 * 60 * 1000; 
   
     chrome.tabs.query({}, (tabs) => {
       if (chrome.runtime.lastError) {
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const lastAccessTime = tab.lastAccessed || tab.lastAccessTime || tab.lastAccessedTime; 
         const inactiveTime = now - new Date(lastAccessTime).getTime();
   
-        if (inactiveTime > TWO_MINUTES) {
+        if (inactiveTime > FIFTEEN_MINUTES) {
           chrome.tabs.remove(tab.id, () => {
             if (chrome.runtime.lastError) {
               console.error(chrome.runtime.lastError);
